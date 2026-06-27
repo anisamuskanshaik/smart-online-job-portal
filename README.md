@@ -136,8 +136,3 @@ GitHub: https://github.com/anisamuskanshaik
 
 ---
 
-## 📄 License
-
-This project is developed for educational and learning purposes.
-1. Clone repository:
-

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ job.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'jobs/style.css' %}">
+</head>
+<body>
+<div class="job-card">
+    <p><strong>Company:</strong> {{ job.company }}</p>
+    <p><strong>Location:</strong> {{ job.location }}</p>
+    <p><strong>Salary:</strong> {{ job.salary }}</p>
+    <p><strong>Description:</strong> {{ job.description }}</p>
+</div>
+
+<br>
+
+<a href="{% url 'apply_job' job.id %}">
+    <button>Apply Job</button>
+</a>
+
+<br><br>
+
+<a href="/jobs/" style="text-decoration:none;">⬅ Back to Jobs</a>
+
+</body>
+</html>

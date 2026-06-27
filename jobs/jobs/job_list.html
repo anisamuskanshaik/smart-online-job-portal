@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Jobs</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'jobs/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+{% if user.is_authenticated %}
+    <p>
+        Welcome, {{ user.username }} |
+        <a href="/jobs/my-applications/">My Applications</a> |
+        <a href="/logout/">Logout</a>
+    </p>
+{% else %}
+    <p>
+        <a href="/login/">Login</a> |
+        <a href="/register/">Register</a>
+    </p>
+{% endif %}
+
+<h1>Available Jobs</h1>
+
+{% for job in jobs %}
+    <div class="job-card">
+        <h3>
+            <a href="{% url 'job_detail' job.id %}">
+                {{ job.title }}
+            </a>
+        </h3>
+
+        <p><strong>Company:</strong> {{ job.company }}</p>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p><strong>Salary:</strong> {{ job.salary }}</p>
+    </div>
+{% empty %}
+    <p>No jobs available.</p>
+{% endfor %}
+
+</div>
+
+</body>
+</html>
